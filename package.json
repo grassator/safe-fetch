@@ -1,6 +1,6 @@
 {
   "name": "safe-fetch",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A `fetch()` wrapper that implements Double Submit Cookies CSRF protection.",
   "main": "index.js",
   "scripts": {},
@@ -9,7 +9,10 @@
     "url": "ssh://git@github.com:grassator/safe-fetch.git"
   },
   "keywords": [
-    "i18n"
+    "security",
+    "csrf",
+    "xsrf",
+    "fetch"
   ],
   "author": "Dmitriy Kubyshkin <grassator@gmail.com>",
   "license": "Apache-2.0",
