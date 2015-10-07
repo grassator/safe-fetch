@@ -20,7 +20,7 @@ var HEADER_NAME = 'x-csrf-token';
 
 function safeFetch(url, options) {
     var token;
-    options = Object.assign({}, options, safeFetch.defaultOptions);
+    options = Object.assign({}, safeFetch.defaultOptions, options);
     if (options.credentials === 'same-origin') {
         token = Cookies.get(COOKIE_NAME);
         options.headers = Object.assign({}, options.headers);
