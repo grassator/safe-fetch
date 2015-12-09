@@ -15,26 +15,26 @@
  */
 
 var Cookies = require('cookies-js');
-var COOKIE_NAME = 'csrf-token';
-var HEADER_NAME = 'x-csrf-token';
 
 function safeFetch(url, options) {
     var token;
-    options = Object.assign({}, safeFetch.defaultOptions, options);
+    options = options || {};
+    if (!('credentials' in options)) {
+        options.credentials = 'same-origin';
+    }
     if (options.credentials === 'same-origin') {
-        token = Cookies.get(COOKIE_NAME);
-        options.headers = Object.assign({}, options.headers);
-        options.headers[HEADER_NAME] = token;
+        token = Cookies.get(safeFetch.cookieName);
+        options.headers = options.headers || {};
+        options.headers[safeFetch.headerName] = token;
     }
     // in case `fetch` starts to accept more arguments in the future
     // we copy all of them and just replace the options
-    var fetchArgs = Array.from(arguments);
+    var fetchArgs = [].slice.call(arguments);
     fetchArgs[1] = options;
     return fetch.apply(undefined, fetchArgs);
 }
 
-safeFetch.defaultOptions = {
-    credentials: 'same-origin'
-};
+safeFetch.cookieName = 'csrf-token';
+safeFetch.headerName = 'x-csrf-token';
 
 module.exports = safeFetch;

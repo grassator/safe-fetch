@@ -1,9 +1,12 @@
 {
   "name": "safe-fetch",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A `fetch()` wrapper that implements Double Submit Cookies CSRF protection.",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test": "mocha test",
+    "tdd": "mocha --watch test"
+  },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:grassator/safe-fetch.git"
@@ -17,6 +20,10 @@
   "author": "Dmitriy Kubyshkin <grassator@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "cookies-js": "^1.2.2"
+    "cookies-js": "1.2.2"
+  },
+  "devDependencies": {
+    "mocha": "2.3.4",
+    "sinon": "1.17.2"
   }
 }

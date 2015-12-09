@@ -1,0 +1,9 @@
+language: node_js
+env: CI=true
+sudo: false
+
+node_js:
+    - "4"
+notifications:
+    email:
+        - dmitriy@kubyshkin.name
