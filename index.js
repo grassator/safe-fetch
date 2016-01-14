@@ -23,7 +23,7 @@ function safeFetch(url, options) {
         options.credentials = 'same-origin';
     }
     if (options.credentials === 'same-origin') {
-        token = Cookies.get(safeFetch.cookieName);
+        token = Cookies.get(safeFetch.cookieName) || '';
         options.headers = options.headers || {};
         options.headers[safeFetch.headerName] = token;
     }
