@@ -1,6 +1,6 @@
 {
   "name": "safe-fetch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A `fetch()` wrapper that implements Double Submit Cookies CSRF protection.",
   "main": "index.js",
   "scripts": {
