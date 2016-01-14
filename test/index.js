@@ -65,4 +65,10 @@ describe('safe fetch', () => {
         assert.deepStrictEqual(global.fetch.firstCall.args[1].headers, { 'x-my-header-name': TEST_TOKEN });
     });
 
+    it('should always have a value for the header', () => {
+        global.fetch = sinon.spy();
+        Cookies.get = () => undefined;
+        safeFetch(TEST_URL);
+        assert.equal(global.fetch.firstCall.args[1].headers['x-csrf-token'], '');
+    });
 });
